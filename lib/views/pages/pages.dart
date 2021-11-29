@@ -12,3 +12,4 @@ part 'login_pages.dart';
 
 part 'list_menu.dart';
 part 'register_pages.dart';
+part 'menu_detail.dart';
