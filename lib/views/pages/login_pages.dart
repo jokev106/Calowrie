@@ -190,7 +190,7 @@ class _LoginState extends State<Login> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(90, 20, 0, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(120, 20, 0, 0),
                               child:  ElevatedButton.icon(                               
                                 label: const Text("Login",
                                 style: TextStyle(
