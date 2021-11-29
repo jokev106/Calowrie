@@ -14,3 +14,4 @@ part 'list_menu.dart';
 part 'register_pages.dart';
 part 'menu_detail.dart';
 part 'admin_area.dart';
+part 'listmenu_admin.dart';
