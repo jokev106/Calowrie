@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -15,3 +14,4 @@ part 'register_pages.dart';
 part 'menu_detail.dart';
 part 'admin_area.dart';
 part 'listmenu_admin.dart';
+part 'cook_detail.dart';
