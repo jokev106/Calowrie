@@ -15,3 +15,4 @@ part 'menu_detail.dart';
 part 'admin_area.dart';
 part 'listmenu_admin.dart';
 part 'cook_detail.dart';
+part 'home_page.dart';
