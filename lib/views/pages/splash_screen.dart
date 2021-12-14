@@ -7,8 +7,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
-  
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -21,20 +21,21 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   }
 
   void checkAuth() async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    if (auth.currentUser != null) {
-      Navigator.pushReplacementNamed(context, HomePageWidget.routeName);
-      AcitivityServices.showToast("Welcome Back", Colors.blue);
-    } else {
-      Navigator.pushReplacementNamed(context, Login.routeName);
-    }
+    // FirebaseAuth auth = FirebaseAuth.instance;
+    // if (auth.currentUser != null) {
+    //   Navigator.pushReplacementNamed(context, HomePageWidget.routeName);
+    //   AcitivityServices.showToast("Welcome Back", Colors.blue);
+    // } else {
+    Navigator.pushReplacementNamed(context, SplashPageWidget.routeName);
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: 
-      Image.asset("assets/images/CalowrieLogos.png"),             
-    );
+    return Scaffold(
+        body: Container(
+      alignment: Alignment.center,
+      child: Image.asset('assets/images/CalowrieLogos.png'),
+    ));
   }
 }
