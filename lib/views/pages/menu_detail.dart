@@ -12,28 +12,6 @@ class _MenuDetailState extends State<MenuDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // key: scaffoldKey,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   automaticallyImplyLeading: false,
-      //   leading: Icon(
-      //     Icons.chevron_left_rounded,
-      //     color: Color(0xFF1B1B1B),
-      //     size: 32,
-      //   ),
-      //   title: Text(
-      //     'Menu Details',
-      //     style: FlutterFlowTheme.title2.override(
-      //       fontFamily: 'Lexend Deca',
-      //       color: Color(0xFF1B1B1B),
-      //       fontSize: 22,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      //   actions: [],
-      //   centerTitle: false,
-      //   elevation: 0,
-      // ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -54,7 +32,7 @@ class _MenuDetailState extends State<MenuDetail> {
               ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
@@ -73,7 +51,7 @@ class _MenuDetailState extends State<MenuDetail> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
@@ -95,7 +73,7 @@ class _MenuDetailState extends State<MenuDetail> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
@@ -115,7 +93,7 @@ class _MenuDetailState extends State<MenuDetail> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
