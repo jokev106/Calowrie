@@ -18,7 +18,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
