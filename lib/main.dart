@@ -28,8 +28,14 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.myTheme(),
       initialRoute: '/',
       routes: {
-         '/': (context) => const Login(),
+         '/': (context) => const SplashScreen(),
+         SplashScreen.routeName: (context) => const SplashScreen(),
+        //  SplashPages.routeName: (context) => const SplashPages(),
          Login.routeName: (context) => const Login(),
+         Register.routeName: (context) => const Register(),
+         HomePageWidget.routeName: (context) => const HomePageWidget(),
+
+
       },
     );
   }
