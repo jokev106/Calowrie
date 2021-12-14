@@ -14,12 +14,8 @@ class _CookDetailPageWidgetState extends State<CookDetailPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< Updated upstream
       key: scaffoldKey,     
       backgroundColor:const Color(0xFFF1F4F8),
-=======
-      backgroundColor: const Color(0xFFF1F4F8),
->>>>>>> Stashed changes
       body: Stack(
         children: [
           Column(
