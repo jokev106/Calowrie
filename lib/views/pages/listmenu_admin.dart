@@ -12,42 +12,6 @@ class _AdminListMenuState extends State<AdminListMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // key: scaffoldKey,
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xFFFEB800),
-      //   automaticallyImplyLeading: false,
-      //   leading: FlutterFlowIconButton(
-      //     borderColor: Colors.transparent,
-      //     borderRadius: 30,
-      //     borderWidth: 1,
-      //     buttonSize: 60,
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //       color: Colors.black,
-      //       size: 30,
-      //     ),
-      //     onPressed: () async {
-      //       await Navigator.push(
-      //         context,
-      //         MaterialPageRoute(
-      //           builder: (context) => AdminPageWidget(),
-      //         ),
-      //       );
-      //     },
-      //   ),
-      //   title: Text(
-      //     'List Menu',
-      //     style: FlutterFlowTheme.title1.override(
-      //       fontFamily: 'Lexend Deca',
-      //       color: Color(0xFF1B1B1B),
-      //       fontSize: 32,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      //   actions: [],
-      //   centerTitle: false,
-      //   elevation: 2,
-      // ),
       backgroundColor: Colors.white,
       body: Column(
         mainAxisSize: MainAxisSize.max,
