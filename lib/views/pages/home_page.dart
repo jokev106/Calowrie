@@ -2,7 +2,7 @@ part of 'pages.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
-  static const String routeName = "/homePage";
+  static const String routeName = "/homepage";
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
