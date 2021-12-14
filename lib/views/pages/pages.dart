@@ -13,6 +13,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 part 'splash_screen.dart';
+part 'splash_pages.dart';
 part 'login_pages.dart';
 part 'list_menu.dart';
 part 'register_pages.dart';
