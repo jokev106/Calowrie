@@ -12,24 +12,6 @@ class _AdminAreaState extends State<AdminArea> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // key: scaffoldKey,
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xFF090F13),
-      //   automaticallyImplyLeading: false,
-      //   title: Text(
-      //     'Calowrie',
-      //     textAlign: TextAlign.center,
-      //     style: FlutterFlowTheme.title1.override(
-      //       fontFamily: 'Lexend Deca',
-      //       color: Colors.white,
-      //       fontSize: 32,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      //   actions: [],
-      //   centerTitle: false,
-      //   elevation: 2,
-      // ),
       backgroundColor: const Color(0xFF1B1B1B),
       body: Column(
         mainAxisSize: MainAxisSize.max,
