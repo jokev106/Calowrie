@@ -17,3 +17,4 @@ part 'listmenu_admin.dart';
 part 'cook_detail.dart';
 part 'createmenu_admin.dart';
 part 'editmenu_admin.dart';
+part 'home_page.dart';
