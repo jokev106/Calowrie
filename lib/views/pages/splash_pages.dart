@@ -15,7 +15,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFF1E2429),
+        backgroundColor: const Color(0xFF6c757d),
         body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -25,27 +25,26 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 120),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 75),
                 child: Image.asset(
                   'assets/images/CalowrieLogos.png',
-                  width: 140,
-                  height: 140,
-                  fit: BoxFit.fitHeight,
                 ),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-                child: ElevatedButton.icon(
-                  onPressed: () async {},
-                  label: const Text(
+                child: ElevatedButton(
+                  onPressed: () async {
+                    Navigator.pushReplacementNamed(context, Login.routeName);
+                  },
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Colors.white,
+                      color: Color(0xFF1B1B1B),
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF1B1B1B),
+                    primary: const Color(0xFFFFFFFF),
                     elevation: 3,
                     minimumSize: const Size(130, 40),
                     side: const BorderSide(
@@ -56,15 +55,13 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  icon: const Icon(
-                    Icons.login_rounded,
-                    color: Colors.white,
-                  ),
                 ),
               ),
-              ElevatedButton.icon(
-                onPressed: () async {},
-                label: const Text(
+              ElevatedButton(
+                onPressed: () async {
+                   Navigator.pushReplacementNamed(context, Register.routeName);
+                },
+                child: const Text(
                   'Register',
                   style: TextStyle(
                     fontFamily: 'Poppins',
@@ -82,10 +79,6 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                ),
-                icon: const Icon(
-                  Icons.login_rounded,
-                  color: Colors.white,
                 ),
               )
             ],
