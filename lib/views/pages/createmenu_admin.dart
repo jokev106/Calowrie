@@ -1,7 +1,8 @@
 part of 'pages.dart';
 
 class AdminCreateMenu extends StatefulWidget {
-  AdminCreateMenu({Key key}) : super(key: key);
+  const AdminCreateMenu({Key? key}) : super(key: key);
+  static const String routeName = "/createmenuadmin";
 
   @override
   _AdminCreateMenuState createState() => _AdminCreateMenuState();
@@ -9,82 +10,23 @@ class AdminCreateMenu extends StatefulWidget {
 
 class _AdminCreateMenuState extends State<AdminCreateMenu> {
   String uploadedFileUrl = '';
-  TextEditingController textController1;
-  TextEditingController textController2;
-  TextEditingController textController3;
-  TextEditingController textController4;
-  TextEditingController textController5;
+  final textController1 = TextEditingController();
+  final textController2 = TextEditingController();
+  final textController3 = TextEditingController();
+  final textController4 = TextEditingController();
+  final textController5 = TextEditingController();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
-    textController3 = TextEditingController();
-    textController4 = TextEditingController();
-    textController5 = TextEditingController();
+    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 30,
-          ),
-          onPressed: () async {
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => AdminPageWidget(),
-              ),
-            );
-          },
-        ),
-        title: Text(
-          'New Menu',
-          style: FlutterFlowTheme.title2.override(
-            fontFamily: 'Lexend Deca',
-            color: Color(0xFF090F13),
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [
-          FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
-            icon: Icon(
-              Icons.save,
-              color: Colors.black,
-              size: 30,
-            ),
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AdminListPageWidget(),
-                ),
-              );
-            },
-          )
-        ],
-        centerTitle: false,
-        elevation: 0,
-      ),
+      key: scaffoldKey,     
       backgroundColor: Colors.white,
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -94,15 +36,15 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.94,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -112,37 +54,36 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'Name',
-                                  hintStyle:
-                                      FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  hintStyle: const TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF8B97A2),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  ),                                     
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           20, 32, 20, 12),
                                 ),
-                                style: FlutterFlowTheme.bodyText1.override(
+                                style: const TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
-                                ),
+                                  ),                        
                                 textAlign: TextAlign.start,
                                 maxLines: 4,
                                 keyboardType: TextInputType.name,
@@ -152,7 +93,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -163,35 +104,35 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 decoration: InputDecoration(
                                   hintText: 'Total Calorie',
                                   hintStyle:
-                                      FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  const TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF8B97A2),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  ),                                     
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           20, 32, 20, 12),
                                 ),
-                                style: FlutterFlowTheme.bodyText1.override(
+                                style:  const TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.normal,                                 
                                 ),
                                 textAlign: TextAlign.start,
                                 maxLines: 4,
@@ -202,7 +143,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -213,35 +154,35 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 decoration: InputDecoration(
                                   hintText: 'Time',
                                   hintStyle:
-                                      FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  const TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF8B97A2),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,                                 
+                                ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                     const EdgeInsetsDirectional.fromSTEB(
                                           20, 32, 20, 12),
                                 ),
-                                style: FlutterFlowTheme.bodyText1.override(
+                                style: const TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.normal,                                 
                                 ),
                                 textAlign: TextAlign.start,
                                 maxLines: 4,
@@ -252,7 +193,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -263,35 +204,35 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 decoration: InputDecoration(
                                   hintText: 'Type',
                                   hintStyle:
-                                      FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                      const TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF8B97A2),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,                                 
+                                ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           20, 32, 20, 12),
                                 ),
-                                style: FlutterFlowTheme.bodyText1.override(
+                                style: const TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.normal,                                 
                                 ),
                                 textAlign: TextAlign.start,
                                 maxLines: 4,
@@ -302,7 +243,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -313,35 +254,35 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 decoration: InputDecoration(
                                   hintText: 'Ingredients',
                                   hintStyle:
-                                      FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                      const TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF8B97A2),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,                                 
+                                ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0xFFDBE2E7),
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           20, 32, 20, 12),
                                 ),
-                                style: FlutterFlowTheme.bodyText1.override(
+                                style: const TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.normal,                                 
                                 ),
                                 textAlign: TextAlign.start,
                                 maxLines: 4,
@@ -352,19 +293,19 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.96,
                           height: 350,
                           decoration: BoxDecoration(
-                            color: Color(0xFFF1F5F8),
+                            color: const Color(0xFFF1F5F8),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.asset(
                                 'assets/images/emptyState@2x.png',
                               ).image,
                             ),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 blurRadius: 6,
                                 color: Color(0x3A000000),
