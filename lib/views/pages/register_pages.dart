@@ -30,27 +30,6 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   automaticallyImplyLeading: true,
-      //   // leading: InkWell(
-      //   //   onTap: () async {
-      //   //     await Navigator.push(
-      //   //       context,
-      //   //       MaterialPageRoute(
-      //   //         builder: (context) => SplashPageWidget(),
-      //   //       ),
-      //   //     );
-      //   //   },
-      //   //   child: const Icon(
-      //   //     Icons.arrow_back,
-      //   //     color: Colors.black,
-      //   //     size: 24,
-      //   //   ),
-      //   // ),
-      //   actions: const [],
-      //   centerTitle: true,
-      // ),
       backgroundColor: const Color(0xFF4B39EF),
       body: Container(
         width: MediaQuery.of(context).size.width,
