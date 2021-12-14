@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:calowrie/shared/shared.dart';
@@ -13,6 +14,7 @@ void enablePlatformOverrideForDekstop(){
 void main() async{
   enablePlatformOverrideForDekstop();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
          '/': (context) => const SplashScreen(),
          SplashScreen.routeName: (context) => const SplashScreen(),
-        //  SplashPages.routeName: (context) => const SplashPages(),
+         SplashPageWidget.routeName: (context) => const SplashPageWidget(),
          Login.routeName: (context) => const Login(),
          Register.routeName: (context) => const Register(),
          HomePageWidget.routeName: (context) => const HomePageWidget(),
