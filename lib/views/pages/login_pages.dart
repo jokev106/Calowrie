@@ -10,6 +10,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
+  final _formkey = GlobalKey<FormState>();
   final emailAddressController = TextEditingController();
   final  passwordController = TextEditingController();
   bool passwordVisibility = false;
@@ -18,12 +19,6 @@ class _LoginState extends State<Login> {
   bool isLoading = false;
   String email = '';
   String password = '';
-
-   @override
-  void initState() {
-    super.initState();
-    passwordVisibility = false;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +97,19 @@ class _LoginState extends State<Login> {
                                 contentPadding: 
                                   const EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
                               ),
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              validator: (value) {
+                          email = value!;
+                          if (value.isEmpty) {
+                            return "Please fill the field!";
+                          } else {
+                            if (!EmailValidator.validate(value)) {
+                              return "Email isn't valid!";
+                            } else {
+                              return null;
+                            }
+                          }
+                        },
                               style: const TextStyle(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF2B343A),
@@ -130,7 +138,7 @@ class _LoginState extends State<Login> {
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
-                                ),
+                                ),                               
                                 hintText: 'Your Password',
                                 hintStyle: const TextStyle(
                                   fontFamily: 'Lexend Deca',
@@ -156,26 +164,29 @@ class _LoginState extends State<Login> {
                                 fillColor: Colors.white,
                                 contentPadding: 
                                   const EdgeInsetsDirectional.fromSTEB(16, 24, 24, 24),
-                                  suffixIcon: InkWell(
-                                    onTap: () => setState(
-                                      () => passwordVisibility = !passwordVisibility,
-                                    ),
-                                    child: Icon(
-                                      passwordVisibility
-                                          ? Icons.visibility_outlined
-                                          : Icons.visibility_off_outlined,
-                                      color: const Color(0xFF95A1AC),
-                                      size: 22,
-                                    ),
-                                  ),
+                                  suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isVisible = !isVisible;
+                              });
+                            },
+                            child: Icon(isVisible == true
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                                  )                                  
                               ),
+                               autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (value) {
+                        return value!.length < 6
+                            ? "Password contains at least 6 character!"
+                            : null;
+                      },
                               style: const TextStyle(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF2B343A),
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
-                              ),
-                              keyboardType: TextInputType.visiblePassword,
+                              ),                             
                             ),
                           ),
                         ],
@@ -189,7 +200,37 @@ class _LoginState extends State<Login> {
                           children: [
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(120, 20, 0, 0),
-                              child:  ElevatedButton.icon(                               
+                              child:  ElevatedButton.icon(  
+                                onPressed: () async {
+                          if (_formkey.currentState!.validate()) {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await AuthServices.signIn(emailAddressController.text, passwordController.text).then((value) {
+                              if (value == "success") {
+                                setState(() {
+                                  isLoading = false;
+                                });
+                                AcitivityServices.showToast("Login success", Colors.blueGrey);
+                                Navigator.pushReplacementNamed(context, HomePageWidget.routeName);
+                              } else {
+                                setState(() {
+                                  isLoading = false;
+                                });
+                                AcitivityServices.showToast(
+                                    value, Colors.redAccent);
+                              }
+                            });
+                            Navigator.pushReplacementNamed(
+                            context, HomePageWidget.routeName);
+
+                          } else {
+                            Fluttertoast.showToast(
+                            msg: "Please check the field",
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white);
+                          }
+                        },                             
                                 label: const Text("Login",
                                 style: TextStyle(
                                     fontFamily: 'Lexend Duca',
@@ -213,8 +254,7 @@ class _LoginState extends State<Login> {
                                 icon: const Icon(
                                   Icons.login_rounded,
                                   color: Colors.white,
-                                  ),                               
-                                onPressed: (){},
+                                  ),                                                             
                               ),
                               ),
                           ],
