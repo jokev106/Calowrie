@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.myTheme(),
       initialRoute: '/',
       routes: {
-         '/': (context) => const HomePageWidget(),
+         '/': (context) => const SplashScreen(),
          SplashScreen.routeName: (context) => const SplashScreen(),
          SplashPageWidget.routeName: (context) => const SplashPageWidget(),
          Login.routeName: (context) => const Login(),

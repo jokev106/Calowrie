@@ -9,11 +9,13 @@ class AdminArea extends StatefulWidget {
 }
 
 class _AdminAreaState extends State<AdminArea> {
-  FirebaseAuth auth = FirebaseAuth.instance;
 
-  signOut() async {
-    await auth.signOut();
-  }
+  bool isLoading = false;
+  // FirebaseAuth auth = FirebaseAuth.instance;
+
+  // signOut() async {
+  //   await auth.signOut();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -269,50 +271,34 @@ class _AdminAreaState extends State<AdminArea> {
                                 Icons.login_rounded,
                                 color: Colors.white,
                               ),
-                              onPressed: () {
-                                signOut();
-                                Navigator.pushReplacementNamed(
-                                              context, SplashScreen.routeName);
+                              onPressed: () async {
+                                setState(() {
+                                  isLoading = true;
+                                });
+                                await AuthServices.signOut().then((value) {
+                                  if (value) {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    AcitivityServices.showToast(
+                                        "Logout success", Colors.greenAccent);
+                                    Navigator.pushReplacementNamed(
+                                        context, Login.routeName);
+                                  } else {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    AcitivityServices.showToast("Logout Failed", Colors.redAccent);
+                                  }
+                                });
+                                // Navigator.pushReplacementNamed(
+                                //     context, SplashScreen.routeName);
                               },
                             ),
                           ),
                         ],
                       ),
                     ),
-                    // Padding(
-                    //   padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
-                    //   child: FFButtonWidget(
-                    //     onPressed: () async {
-                    //       setState(() => _loadingButton3 = true);
-                    //       try {
-                    //         await Navigator.push(
-                    //           context,
-                    //           MaterialPageRoute(
-                    //             builder: (context) => SplashPageWidget(),
-                    //           ),
-                    //         );
-                    //       } finally {
-                    //         setState(() => _loadingButton3 = false);
-                    //       }
-                    //     },
-                    //     text: 'Logout',
-                    //     options: FFButtonOptions(
-                    //       width: 130,
-                    //       height: 40,
-                    //       color: Color(0xFFE03437),
-                    //       textStyle: FlutterFlowTheme.subtitle2.override(
-                    //         fontFamily: 'Poppins',
-                    //         color: Colors.white,
-                    //       ),
-                    //       borderSide: BorderSide(
-                    //         color: Colors.transparent,
-                    //         width: 1,
-                    //       ),
-                    //       borderRadius: 12,
-                    //     ),
-                    //     loading: _loadingButton3,
-                    //   ),
-                    // )
                   ],
                 ),
               ),
