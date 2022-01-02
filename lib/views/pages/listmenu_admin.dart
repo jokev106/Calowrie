@@ -11,7 +11,7 @@ class AdminListMenu extends StatefulWidget {
 class _AdminListMenuState extends State<AdminListMenu> {
 
   CollectionReference menuCollection = FirebaseFirestore.instance.collection("menu");
-
+  final _formkey = GlobalKey<FormState>();
   // @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -39,6 +39,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
 // }
   Widget buildBody() {
     return SizedBox(
+        
         width: double.infinity,
         height: double.infinity,
         child: StreamBuilder<QuerySnapshot>(
@@ -53,6 +54,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
             //   return AcitivityServices.loadings();
             // }
             return ListView(
+              key: _formkey,
               children: snapshot.data!.docs.map((DocumentSnapshot doc) {
                 Menus menus = Menus(
                   doc['MenuUid'],

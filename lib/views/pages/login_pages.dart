@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
                           'Login',
                           style: TextStyle(fontFamily: 'Poopins', fontSize: 64),
                         ),
-                        const SizedBox(height: 100),                      
+                        const SizedBox(height: 100),
                         TextFormField(
                           controller: emailAddressController,
                           keyboardType: TextInputType.emailAddress,
@@ -106,34 +106,66 @@ class _LoginState extends State<Login> {
                         const SizedBox(height: 24),
                         ElevatedButton.icon(
                           onPressed: () async {
-                            if (_formkey.currentState!.validate()) {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              await AuthServices.signIn(
-                                      emailAddressController.text, passwordController.text)
-                                  .then((value) {
-                                if (value == "success") {
-                                  setState(() {
-                                    isLoading = false;
-                                  });
-                                  AcitivityServices.showToast(
-                                      "Login success", Colors.green);
-                                  Navigator.pushReplacementNamed(
-                                      context, AdminListMenu.routeName);
-                                } else {
-                                  setState(() {
-                                    isLoading = false;
-                                  });
-                                  AcitivityServices.showToast(value, Colors.red);
-                                }
-                              });
+                            if (emailAddressController.text == 'kevinm@gmail.com' && passwordController.text == '123qwe'){
+                              if (_formkey.currentState!.validate()) {
+                                setState(() {
+                                  isLoading = true;
+                                });
 
-                              //Navigator.pushReplacementNamed(context, MainMenu.routeName);
+                                await AuthServices.signIn(
+                                        emailAddressController.text,
+                                        passwordController.text)
+                                    .then((value) {
+                                  if (value == "success") {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    AcitivityServices.showToast(
+                                        "Login success", Colors.green);
+                                    Navigator.pushReplacementNamed(
+                                        context, AdminCreateMenu.routeName);
+                                  } else {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    AcitivityServices.showToast(
+                                        value, Colors.red);
+                                  }
+                                });
+                                //Navigator.pushReplacementNamed(context, MainMenu.routeName);
+                              }
                             } else {
-                              Fluttertoast.showToast(
-                                msg: "Please check the fields",
-                              );
+                              if (_formkey.currentState!.validate()) {
+                                setState(() {
+                                  isLoading = true;
+                                });
+
+                                await AuthServices.signIn(
+                                        emailAddressController.text,
+                                        passwordController.text)
+                                    .then((value) {
+                                  if (value == "success") {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    AcitivityServices.showToast(
+                                        "Login success", Colors.green);
+                                    Navigator.pushReplacementNamed(
+                                        context, Register.routeName);
+                                  } else {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    AcitivityServices.showToast(
+                                        value, Colors.red);
+                                  }
+                                });
+                                //Navigator.pushReplacementNamed(context, MainMenu.routeName);
+                              } else {
+                                Fluttertoast.showToast(
+                                  msg: "Please check the fields",
+                                );
+                              }
                             }
                           },
                           icon: const Icon(

@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
     //   Navigator.pushReplacementNamed(context, AdminListMenu.routeName);
     //   AcitivityServices.showToast("Welcome Back", Colors.blue);
     // } else {
-      Navigator.pushReplacementNamed(context, AdminListMenu.routeName);
+      Navigator.pushReplacementNamed(context, SplashPageWidget.routeName);
     // }
   }
 
