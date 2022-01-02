@@ -25,6 +25,7 @@ class Menus extends Equatable{
     // this.file
   );
 
+  @override
   List<Object> get props => [
     uid,
     name,

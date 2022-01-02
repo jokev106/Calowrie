@@ -370,12 +370,12 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                       ),
                       TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor: Color(0xffd09484),
-                        padding: EdgeInsets.fromLTRB(20, 1, 20, 1),
+                        backgroundColor: const Color(0xffd09484),
+                        padding: const EdgeInsets.fromLTRB(20, 1, 20, 1),
                         primary: Colors.black,
                         textStyle: const TextStyle(fontSize: 16),
                       ),
-                      child: Text('Post'),
+                      child: const Text('Post'),
                       onPressed: () {
                         // if (_formKey.currentState!.validate()) {
                           // final uid = AuthServices.auth.currentUser!.uid;

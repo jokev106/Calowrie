@@ -3,7 +3,7 @@ part of 'widgets.dart';
 class AdminMenuCard extends StatefulWidget {
   final Menus menus;
 
-  AdminMenuCard({required this.menus});
+  const AdminMenuCard({Key? key, required this.menus}) : super(key: key);
 
   @override
   _AdminMenuCardState createState() => _AdminMenuCardState();

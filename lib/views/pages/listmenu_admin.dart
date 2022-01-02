@@ -38,7 +38,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
 //   }
 // }
   Widget buildBody() {
-    return Container(
+    return SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: StreamBuilder<QuerySnapshot>(
@@ -46,7 +46,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
-              return Text("Failed to load data");
+              return const Text("Failed to load data");
             }
 
             // if (snapshot.connectionState == ConnectionState.waiting) {
