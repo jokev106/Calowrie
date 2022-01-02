@@ -9,283 +9,74 @@ class AdminListMenu extends StatefulWidget {
 }
 
 class _AdminListMenuState extends State<AdminListMenu> {
+
+  CollectionReference menuCollection = FirebaseFirestore.instance.collection("menu");
+
+  // @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       body: Column(
+//         mainAxisSize: MainAxisSize.max,
+//         children: [
+//           Expanded(
+//             child: Padding(
+//               padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+//               child: SingleChildScrollView(
+//                 child: Column(
+//                   mainAxisSize: MainAxisSize.max,
+//                   children: [
+                    
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
+  Widget buildBody() {
+    return SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: StreamBuilder<QuerySnapshot>(
+          stream: menuCollection.snapshots(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return const Text("Failed to load data");
+            }
+
+            // if (snapshot.connectionState == ConnectionState.waiting) {
+            //   return AcitivityServices.loadings();
+            // }
+            return ListView(
+              children: snapshot.data!.docs.map((DocumentSnapshot doc) {
+                Menus menus = Menus(
+                  doc['MenuUid'],
+                  doc['MenuName'],
+                  doc['MenuCalorie'],
+                  doc['MenuTime'],
+                  doc['MenuType'],
+                  doc['MenuIngredients'],
+                  doc['MenuSteps'],
+                  doc['CreatedAt'],
+                  doc['UpdatedAt'],
+                );
+                return AdminMenuCard(menus: menus);
+              }).toList(),
+            );
+          },
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 184,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF090F13),
-                          image: DecorationImage(
-                            fit: BoxFit.fitWidth,
-                            image: Image.asset(
-                              'assets/images/food.jpeg',
-                            ).image,
-                          ),
-                          boxShadow: const [
-                            BoxShadow(
-                              blurRadius: 3,
-                              color: Color(0x33000000),
-                              offset: Offset(0, 2),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: const Color(0x65090F13),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16, 16, 16, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: const [
-                                    Expanded(
-                                      child: Text(
-                                        'Pecel Lele',
-                                        style: TextStyle(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Colors.white,
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16, 4, 16, 16),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      ElevatedButton.icon(
-                                        label: const Text(
-                                          "Edit",
-                                          style: TextStyle(
-                                            fontFamily: 'Lexend Duca',
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          primary: const Color(0xFF39d2c0),
-                                          elevation: 3,
-                                          minimumSize: const Size(130, 60),
-                                          side: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: Colors.white,
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                      ElevatedButton.icon(
-                                        label: const Text(
-                                          "Delete",
-                                          style: TextStyle(
-                                            fontFamily: 'Lexend Duca',
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          primary: const Color(0xFFe03437),
-                                          elevation: 3,
-                                          minimumSize: const Size(130, 60),
-                                          side: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                        icon: const Icon(
-                                          Icons.add_rounded,
-                                          color: Colors.white,
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 184,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF090F13),
-                          image: DecorationImage(
-                            fit: BoxFit.fitWidth,
-                            image: Image.asset(
-                              'assets/images/food.jpeg',
-                            ).image,
-                          ),
-                          boxShadow: const [
-                            BoxShadow(
-                              blurRadius: 3,
-                              color: Color(0x33000000),
-                              offset: Offset(0, 2),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: const Color(0x65090F13),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16, 16, 16, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: const [
-                                    Expanded(
-                                      child: Text(
-                                        'Hamburger',
-                                        style: TextStyle(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Colors.white,
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16, 4, 16, 16),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      ElevatedButton.icon(
-                                        label: const Text(
-                                          "Edit",
-                                          style: TextStyle(
-                                            fontFamily: 'Lexend Duca',
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          primary: const Color(0xFF39d2c0),
-                                          elevation: 3,
-                                          minimumSize: const Size(130, 60),
-                                          side: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: Colors.white,
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                      ElevatedButton.icon(
-                                        label: const Text(
-                                          "Delete",
-                                          style: TextStyle(
-                                            fontFamily: 'Lexend Duca',
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          primary: const Color(0xFFe03437),
-                                          elevation: 3,
-                                          minimumSize: const Size(130, 60),
-                                          side: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                        icon: const Icon(
-                                          Icons.add_rounded,
-                                          color: Colors.white,
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
+      resizeToAvoidBottomInset: false,
+      body: buildBody(),
     );
   }
 }

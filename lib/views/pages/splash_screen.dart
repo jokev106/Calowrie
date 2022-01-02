@@ -23,20 +23,20 @@ class _SplashScreenState extends State<SplashScreen>
   void checkAuth() async {
     // FirebaseAuth auth = FirebaseAuth.instance;
     // if (auth.currentUser != null) {
-    //   Navigator.pushReplacementNamed(context, HomePageWidget.routeName);
+    //   Navigator.pushReplacementNamed(context, AdminListMenu.routeName);
     //   AcitivityServices.showToast("Welcome Back", Colors.blue);
     // } else {
-    Navigator.pushReplacementNamed(context, SplashPageWidget.routeName);
+      Navigator.pushReplacementNamed(context, AdminListMenu.routeName);
     // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF6c757d),
-      body: Container(
-      alignment: Alignment.center,
-      child: Image.asset('assets/images/CalowrieLogos.png'),
-    ));
+        backgroundColor: const Color(0xFF6c757d),
+        body: Container(
+          alignment: Alignment.center,
+          child: Image.asset('assets/images/CalowrieLogos.png'),
+        ));
   }
 }
