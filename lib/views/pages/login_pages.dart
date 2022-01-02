@@ -123,7 +123,7 @@ class _LoginState extends State<Login> {
                                     AcitivityServices.showToast(
                                         "Login success", Colors.green);
                                     Navigator.pushReplacementNamed(
-                                        context, AdminCreateMenu.routeName);
+                                        context, AdminArea.routeName);
                                   } else {
                                     setState(() {
                                       isLoading = false;

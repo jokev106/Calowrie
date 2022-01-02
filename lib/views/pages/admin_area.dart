@@ -84,6 +84,9 @@ class _AdminAreaState extends State<AdminArea> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       ElevatedButton.icon(
+                                        onPressed: (){
+                                          Navigator.pushReplacementNamed(context, AdminCreateMenu.routeName);
+                                        },
                                         label: const Text(
                                           "Click",
                                           style: TextStyle(
@@ -110,7 +113,6 @@ class _AdminAreaState extends State<AdminArea> {
                                           Icons.add_rounded,
                                           color: Colors.white,
                                         ),
-                                        onPressed: () {},
                                       ),
                                     ],
                                   ),
@@ -161,7 +163,7 @@ class _AdminAreaState extends State<AdminArea> {
                                   children: const [
                                     Expanded(
                                       child: Text(
-                                        'Add new menu',
+                                        'List menu',
                                         style: TextStyle(
                                           fontFamily: 'Lexend Deca',
                                           color: Colors.white,
@@ -182,6 +184,9 @@ class _AdminAreaState extends State<AdminArea> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       ElevatedButton.icon(
+                                        onPressed: (){
+                                          Navigator.pushReplacementNamed(context, AdminListMenu.routeName);
+                                        },
                                         label: const Text(
                                           "Click",
                                           style: TextStyle(
@@ -208,7 +213,6 @@ class _AdminAreaState extends State<AdminArea> {
                                           Icons.list,
                                           color: Colors.white,
                                         ),
-                                        onPressed: () {},
                                       ),
                                     ],
                                   ),
