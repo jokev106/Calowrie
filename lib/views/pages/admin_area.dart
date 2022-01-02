@@ -85,7 +85,7 @@ class _AdminAreaState extends State<AdminArea> {
                                     children: [
                                       ElevatedButton.icon(
                                         onPressed: (){
-                                          Navigator.pushReplacementNamed(context, AdminCreateMenu.routeName);
+                                          Navigator.pushNamed(context, AdminCreateMenu.routeName);
                                         },
                                         label: const Text(
                                           "Click",
@@ -185,7 +185,7 @@ class _AdminAreaState extends State<AdminArea> {
                                     children: [
                                       ElevatedButton.icon(
                                         onPressed: (){
-                                          Navigator.pushReplacementNamed(context, AdminListMenu.routeName);
+                                          Navigator.pushNamed(context, AdminListMenu.routeName);
                                         },
                                         label: const Text(
                                           "Click",

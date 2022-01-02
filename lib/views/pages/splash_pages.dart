@@ -34,7 +34,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                 child: ElevatedButton(
                   onPressed: () async {
-                    Navigator.pushReplacementNamed(context, Login.routeName);
+                    Navigator.pushNamed(context, Login.routeName);
                   },
                   child: const Text(
                     'Login',
@@ -59,7 +59,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                   Navigator.pushReplacementNamed(context, Register.routeName);
+                   Navigator.pushNamed(context, Register.routeName);
                 },
                 child: const Text(
                   'Register',
