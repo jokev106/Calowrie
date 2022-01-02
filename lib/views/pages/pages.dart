@@ -3,6 +3,8 @@ import 'dart:ui';
 
 import 'package:calowrie/model/models.dart';
 import 'package:calowrie/services/services.dart';
+import 'package:calowrie/views/widgets/widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
