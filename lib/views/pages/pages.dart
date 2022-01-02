@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:calowrie/model/models.dart';
 import 'package:calowrie/services/services.dart';
+import 'package:calowrie/shared/shared.dart';
 import 'package:calowrie/views/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
@@ -13,6 +15,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 part 'splash_screen.dart';
@@ -27,3 +30,5 @@ part 'cook_detail.dart';
 part 'createmenu_admin.dart';
 part 'editmenu_admin.dart';
 part 'home_page.dart';
+part 'account.dart';
+part 'info_calowrie.dart';
