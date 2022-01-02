@@ -9,6 +9,12 @@ class AdminArea extends StatefulWidget {
 }
 
 class _AdminAreaState extends State<AdminArea> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  signOut() async {
+    await auth.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +30,8 @@ class _AdminAreaState extends State<AdminArea> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 184,
@@ -84,8 +91,9 @@ class _AdminAreaState extends State<AdminArea> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       ElevatedButton.icon(
-                                        onPressed: (){
-                                          Navigator.pushNamed(context, AdminCreateMenu.routeName);
+                                        onPressed: () {
+                                          Navigator.pushNamed(context,
+                                              AdminCreateMenu.routeName);
                                         },
                                         label: const Text(
                                           "Click",
@@ -124,7 +132,8 @@ class _AdminAreaState extends State<AdminArea> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 184,
@@ -184,8 +193,9 @@ class _AdminAreaState extends State<AdminArea> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       ElevatedButton.icon(
-                                        onPressed: (){
-                                          Navigator.pushNamed(context, AdminListMenu.routeName);
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, AdminListMenu.routeName);
                                         },
                                         label: const Text(
                                           "Click",
@@ -224,44 +234,51 @@ class _AdminAreaState extends State<AdminArea> {
                       ),
                     ),
                     Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(120, 20, 0, 0),
-                              child:  ElevatedButton.icon(                               
-                                label: const Text("Logout",
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                120, 20, 0, 0),
+                            child: ElevatedButton.icon(
+                              label: const Text(
+                                "Logout",
                                 style: TextStyle(
-                                    fontFamily: 'Lexend Duca',
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                style:  ElevatedButton.styleFrom(
-                                  primary: const Color(0xFFe03437),                                 
-                                  elevation: 3,
-                                  minimumSize: const Size(130, 60),
-                                  side: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                ),                               
-                                icon: const Icon(
-                                  Icons.login_rounded,
+                                  fontFamily: 'Lexend Duca',
                                   color: Colors.white,
-                                  ),                               
-                                onPressed: (){},
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
+                              style: ElevatedButton.styleFrom(
+                                primary: const Color(0xFFe03437),
+                                elevation: 3,
+                                minimumSize: const Size(130, 60),
+                                side: const BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
-                          ],
-                        ),
-                        ),
+                              icon: const Icon(
+                                Icons.login_rounded,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {
+                                signOut();
+                                Navigator.pushReplacementNamed(
+                                              context, SplashScreen.routeName);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     // Padding(
                     //   padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
                     //   child: FFButtonWidget(
