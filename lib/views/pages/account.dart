@@ -227,7 +227,7 @@ class _MyAccountState extends State<MyAccount> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+              padding: const EdgeInsetsDirectional.fromSTEB(16, 80, 16, 12),
               child: ElevatedButton.icon(
                   onPressed: () async {
                     setState(() {

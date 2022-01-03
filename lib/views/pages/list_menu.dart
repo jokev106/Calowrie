@@ -43,7 +43,7 @@ class _ListMenuState extends State<ListMenu> {
                   doc['CreatedAt'],
                   doc['UpdatedAt'],
                 );
-                return AdminMenuCard(menus: menus);
+                return UserMenuCard(menus: menus);
               }).toList(),
             );
           },

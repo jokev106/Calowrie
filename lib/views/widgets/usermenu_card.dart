@@ -64,7 +64,47 @@ class _UserMenuCardState extends State<UserMenuCard> {
                       )
                     ],
                   ),
-                ),               
+                ),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16, 4, 16, 16),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        ElevatedButton.icon(
+                          label: const Text(
+                            "Detail",
+                            style: TextStyle(
+                              fontFamily: 'Lexend Duca',
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: const Color(0xFF39d2c0),
+                            elevation: 3,
+                            minimumSize: const Size(130, 60),
+                            side: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          icon: const Icon(
+                            Icons.info,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ) 
               ],
             ),
           ),
