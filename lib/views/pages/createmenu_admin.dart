@@ -392,8 +392,11 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                   '',
                                   '',
                                 ));
-                                // Navigator.pushReplacementNamed(
-                                //     context, AdminArea.routeName);
+                                Navigator.pushReplacementNamed(
+                                    context, AdminArea.routeName);
+                                Fluttertoast.showToast(
+                                    msg: "Save Menu Successful.",
+                                    backgroundColor: Colors.white);
                               }),
                         ],
                       ),
