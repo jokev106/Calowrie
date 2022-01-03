@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
          AdminListMenu.routeName: (context) => const AdminListMenu(),
          AdminCreateMenu.routeName: (context) => const AdminCreateMenu(),
          MenuDetail.routeName: (context) => const MenuDetail(),
-
+         MyAccount.routeName: (context) => const MyAccount(),
 
 
       },
