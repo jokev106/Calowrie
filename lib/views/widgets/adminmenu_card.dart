@@ -83,6 +83,11 @@ class _AdminMenuCardState extends State<AdminMenuCard> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          // onPressed: () {
+                          //         Navigator.pushNamed(
+                          //             context, AdminEditMenuPageWidget.routeName,
+                          //             );
+                          //       },
                           style: ElevatedButton.styleFrom(
                             primary: const Color(0xFF39d2c0),
                             elevation: 3,
@@ -99,7 +104,12 @@ class _AdminMenuCardState extends State<AdminMenuCard> {
                             Icons.edit,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              AdminEditMenuPageWidget.routeName,
+                            );
+                          },
                         ),
                         ElevatedButton.icon(
                           label: const Text(
@@ -127,7 +137,26 @@ class _AdminMenuCardState extends State<AdminMenuCard> {
                             Icons.add_rounded,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            bool result =
+                                await AdminServices.deleteMenu(menus.uid);
+                            if (result) {
+                              AcitivityServices.showToast(
+                                  "Delete data success!", Colors.green);
+                            } else {
+                              AcitivityServices.showToast(
+                                  "Delete data failed!", Colors.red);
+                            }
+                            // bool result =
+                            //     await AdminServices.deleteMenu(menus.uid);
+                            // if (result) {
+                            //   AcitivityServices.showToast(
+                            //       "Delete success!", Colors.white);
+                            // } else {
+                            //   AcitivityServices.showToast(
+                            //       "Delete  failed!", Colors.white);
+                            // }
+                          },
                         ),
                       ],
                     ),
