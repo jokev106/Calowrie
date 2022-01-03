@@ -1,39 +1,37 @@
 part of 'pages.dart';
 
-class AccountWidget extends StatefulWidget {
-  const AccountWidget({Key key}) : super(key: key);
+class MyAccount extends StatefulWidget {
+  const MyAccount({Key? key}) : super(key: key);
 
   @override
-  _AccountWidgetState createState() => _AccountWidgetState();
+  _MyAccountState createState() => _MyAccountState();
 }
 
-class _AccountWidgetState extends State<AccountWidget> {
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+class _MyAccountState extends State<MyAccount> {
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Color(0xFF262D34),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
+        // key: scaffoldKey,
+        backgroundColor: const Color(0xFF262D34),
+        body: SingleChildScrollView(
+          child: Column(mainAxisSize: MainAxisSize.max, children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
               child: Card(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                color: Color(0xFF4B39EF),
+                color: const Color(0xFF4B39EF),
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                  padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'assets/images/CalowrieLogos.png',
+                      'assets/images/food.jpeg',
                       width: 90,
                       height: 90,
                       fit: BoxFit.cover,
@@ -43,31 +41,30 @@ class _AccountWidgetState extends State<AccountWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
-                                'Mark Zuckerberg',
+                                '[User Name]',
                                 style: TextStyle(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    fontFamily: 'Lexend Deca',
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
                           ],
@@ -75,18 +72,17 @@ class _AccountWidgetState extends State<AccountWidget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                               child: Text(
-                                'calowrie@student.cipura.ac.id',
+                                'User.name@domainname.com',
                                 style: TextStyle(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Color(0xFF95A1AC),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                                    fontFamily: 'Lexend Deca',
+                                    fontSize: 14,
+                                    color: Color(0xFF95A1AC),
+                                    fontWeight: FontWeight.normal),
                               ),
                             ),
                           ],
@@ -97,7 +93,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                 ],
               ),
             ),
-            Divider(
+            const Divider(
               height: 1,
               thickness: 2,
               indent: 16,
@@ -105,41 +101,39 @@ class _AccountWidgetState extends State<AccountWidget> {
               color: Color(0x250D9BF1),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
+                    children: const [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 8),
                         child: Text(
                           'User Bio',
                           style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF95A1AC),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
+                              fontFamily: 'Lexend Deca',
+                              fontSize: 14,
+                              color: Color(0xFF95A1AC),
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
                     ],
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
+                    children: const [
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                           child: Text(
-                            'Calowrie JOS GANDOS!',
+                            'TEXT',
                             style: TextStyle(
-                              fontFamily: 'Lexend Deca',
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
+                                fontFamily: 'Lexend Deca',
+                                fontSize: 14,
+                                color: Color(0xFF95A1AC),
+                                fontWeight: FontWeight.normal),
                           ),
                         ),
                       ),
@@ -149,41 +143,39 @@ class _AccountWidgetState extends State<AccountWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
+                    children: const [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 8),
                         child: Text(
                           'Height',
                           style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF95A1AC),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
+                              fontFamily: 'Lexend Deca',
+                              fontSize: 14,
+                              color: Color(0xFF95A1AC),
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
                     ],
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
+                    children: const [
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                           child: Text(
-                            '200cm',
+                            '178cm',
                             style: TextStyle(
-                              fontFamily: 'Lexend Deca',
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
+                                fontFamily: 'Lexend Deca',
+                                fontSize: 14,
+                                color: Color(0xFF95A1AC),
+                                fontWeight: FontWeight.normal),
                           ),
                         ),
                       ),
@@ -193,41 +185,39 @@ class _AccountWidgetState extends State<AccountWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
+                    children: const [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 8),
                         child: Text(
                           'Weight',
                           style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF95A1AC),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
+                              fontFamily: 'Lexend Deca',
+                              fontSize: 14,
+                              color: Color(0xFF95A1AC),
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
                     ],
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
+                    children: const [
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                           child: Text(
-                            '100 kg',
+                            '78 kg',
                             style: TextStyle(
-                              fontFamily: 'Lexend Deca',
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
+                                fontFamily: 'Lexend Deca',
+                                fontSize: 14,
+                                color: Color(0xFF95A1AC),
+                                fontWeight: FontWeight.normal),
                           ),
                         ),
                       ),
@@ -236,9 +226,40 @@ class _AccountWidgetState extends State<AccountWidget> {
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+              child: ElevatedButton.icon(
+                  onPressed: () async {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    await AuthServices.signOut().then((value) {
+                      if (value) {
+                        setState(() {
+                          isLoading = false;
+                        });
+                        AcitivityServices.showToast(
+                            "Logout success", Colors.greenAccent);
+                        Navigator.pushReplacementNamed(
+                            context, Login.routeName);
+                      } else {
+                        setState(() {
+                          isLoading = false;
+                        });
+                        AcitivityServices.showToast(
+                            "Logout Failed", Colors.redAccent);
+                      }
+                    });
+                  },
+                  icon: const Icon(Icons.logout),
+                  label: const Text("Logout"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey[400],
+                    elevation: 0,
+                  )),
+            ),
+            isLoading == true ? AcitivityServices.loadings() : Container()
+          ]),
+        ));
   }
 }
