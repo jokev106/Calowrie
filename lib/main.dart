@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
          AdminArea.routeName: (context) => const AdminArea(),
          AdminListMenu.routeName: (context) => const AdminListMenu(),
          AdminCreateMenu.routeName: (context) => const AdminCreateMenu(),
+         MenuDetail.routeName: (context) => const MenuDetail(),
 
 
 
