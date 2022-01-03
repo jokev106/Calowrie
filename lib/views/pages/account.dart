@@ -227,6 +227,21 @@ class _MyAccountState extends State<MyAccount> {
               ),
             ),
             Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 80, 16, 12),
+                child: Card(
+                  child: InkWell(
+                    splashColor: Colors.blue.withAlpha(30),
+                    onTap: () {
+                      debugPrint('Card tapped');
+                    },
+                    child: const SizedBox(
+                      width: 300,
+                      height: 100,
+                      child: Text('Payment'),
+                    ),
+                  ),
+                )),
+            Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16, 80, 16, 12),
               child: ElevatedButton.icon(
                   onPressed: () async {
