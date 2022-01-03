@@ -14,7 +14,7 @@ class _MyAccountState extends State<MyAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
         // key: scaffoldKey,
-        backgroundColor: const Color(0xFF262D34),
+        // backgroundColor: const Color(0xFF262D34),
         body: SingleChildScrollView(
           child: Column(mainAxisSize: MainAxisSize.max, children: [
             Padding(
@@ -63,7 +63,7 @@ class _MyAccountState extends State<MyAccount> {
                                 style: TextStyle(
                                     fontFamily: 'Lexend Deca',
                                     fontSize: 20,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -81,7 +81,7 @@ class _MyAccountState extends State<MyAccount> {
                                 style: TextStyle(
                                     fontFamily: 'Lexend Deca',
                                     fontSize: 14,
-                                    color: Color(0xFF95A1AC),
+                                    color: Colors.black,
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
@@ -98,7 +98,7 @@ class _MyAccountState extends State<MyAccount> {
               thickness: 2,
               indent: 16,
               endIndent: 16,
-              color: Color(0x250D9BF1),
+              color: Colors.black,
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
@@ -115,7 +115,7 @@ class _MyAccountState extends State<MyAccount> {
                           style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               fontSize: 14,
-                              color: Color(0xFF95A1AC),
+                              color: Colors.black,
                               fontWeight: FontWeight.normal),
                         ),
                       ),
@@ -132,7 +132,7 @@ class _MyAccountState extends State<MyAccount> {
                             style: TextStyle(
                                 fontFamily: 'Lexend Deca',
                                 fontSize: 14,
-                                color: Color(0xFF95A1AC),
+                                color: Colors.black,
                                 fontWeight: FontWeight.normal),
                           ),
                         ),
@@ -157,7 +157,7 @@ class _MyAccountState extends State<MyAccount> {
                           style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               fontSize: 14,
-                              color: Color(0xFF95A1AC),
+                              color: Colors.black,
                               fontWeight: FontWeight.normal),
                         ),
                       ),
@@ -174,7 +174,7 @@ class _MyAccountState extends State<MyAccount> {
                             style: TextStyle(
                                 fontFamily: 'Lexend Deca',
                                 fontSize: 14,
-                                color: Color(0xFF95A1AC),
+                                color: Colors.black,
                                 fontWeight: FontWeight.normal),
                           ),
                         ),
@@ -199,7 +199,7 @@ class _MyAccountState extends State<MyAccount> {
                           style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               fontSize: 14,
-                              color: Color(0xFF95A1AC),
+                              color: Colors.black,
                               fontWeight: FontWeight.normal),
                         ),
                       ),
@@ -216,7 +216,7 @@ class _MyAccountState extends State<MyAccount> {
                             style: TextStyle(
                                 fontFamily: 'Lexend Deca',
                                 fontSize: 14,
-                                color: Color(0xFF95A1AC),
+                                color: Colors.black,
                                 fontWeight: FontWeight.normal),
                           ),
                         ),
