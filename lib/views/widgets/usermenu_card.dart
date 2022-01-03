@@ -99,7 +99,9 @@ class _UserMenuCardState extends State<UserMenuCard> {
                             Icons.info,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, MenuDetail.routeName);
+                          },
                         ),
                       ],
                     ),
