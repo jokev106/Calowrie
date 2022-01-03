@@ -30,4 +30,28 @@ class AdminServices {
       return false;
     }
   }
+
+  static Future<bool> deleteMenu (String id) async {
+    bool hsl = true;
+    await Firebase.initializeApp();
+    await menuCollection.doc(id).delete().then((value) {
+      hsl = true;
+    }).catchError((onError) {
+      hsl = false;
+    });
+
+    return hsl;
+  }
+  // static Future<bool> deleteMenu (String id) async{
+  //   bool hsl = true;
+  //   await Firebase.initializeApp();
+  //   await menuCollection.doc(id).delete().then((value){
+  //     hsl = true;
+  //   }).catchError((onError){
+  //     hsl = false;
+  //   });
+    
+  //   return hsl;
+  // }
+
 }
