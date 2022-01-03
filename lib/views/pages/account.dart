@@ -30,10 +30,10 @@ class _MyAccountState extends State<MyAccount> {
                   return AcitivityServices.loadings();
                 }
 
-                return  ListView(
+                return ListView(
                   children: snapshot.data!.docs.map((DocumentSnapshot doc) {
                     Users users;
-                    users =  Users(
+                    users = Users(
                       doc['uid'],
                       doc['name'],
                       doc['email'],
@@ -49,8 +49,8 @@ class _MyAccountState extends State<MyAccount> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                Color(0xFFC72C41),
-                                Color(0xFF2D142C),
+                                Color(0xFF37474F),
+                                Color(0xFF263238),
                               ])),
                           child: Container(
                               width: double.infinity,
