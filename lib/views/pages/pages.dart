@@ -32,3 +32,4 @@ part 'editmenu_admin.dart';
 part 'home_page.dart';
 part 'account.dart';
 part 'info_calowrie.dart';
+part 'test.dart';

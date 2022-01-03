@@ -2,286 +2,194 @@ part of 'pages.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({Key? key}) : super(key: key);
-
+  static const String routeName = "/myaccount";
   @override
   _MyAccountState createState() => _MyAccountState();
 }
 
-class _MyAccountState extends State<MyAccount> {
-  bool isLoading = false;
+bool isLoading = false;
+//
+String uid = FirebaseAuth.instance.currentUser!.uid;
+CollectionReference userCollection =
+    FirebaseFirestore.instance.collection("users");
 
+//
+class _MyAccountState extends State<MyAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // key: scaffoldKey,
-        // backgroundColor: const Color(0xFF262D34),
-        body: SingleChildScrollView(
-      child: Column(mainAxisSize: MainAxisSize.max, children: [
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
-          child: Card(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            color: const Color(0xFF4B39EF),
-            elevation: 2,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  'assets/images/food.jpeg',
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                          child: Text(
-                            '[User Name]',
-                            style: TextStyle(
-                                fontFamily: 'Lexend Deca',
-                                fontSize: 20,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                          child: Text(
-                            'User.name@domainname.com',
-                            style: TextStyle(
-                                fontFamily: 'Lexend Deca',
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Divider(
-          height: 1,
-          thickness: 2,
-          indent: 16,
-          endIndent: 16,
-          color: Colors.black,
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 8),
-                    child: Text(
-                      'User Bio',
-                      style: TextStyle(
-                          fontFamily: 'Lexend Deca',
-                          fontSize: 14,
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                      child: Text(
-                        'TEXT',
-                        style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 8),
-                    child: Text(
-                      'Height',
-                      style: TextStyle(
-                          fontFamily: 'Lexend Deca',
-                          fontSize: 14,
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                      child: Text(
-                        '178cm',
-                        style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 4, 0, 8),
-                    child: Text(
-                      'Weight',
-                      style: TextStyle(
-                          fontFamily: 'Lexend Deca',
-                          fontSize: 14,
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                      child: Text(
-                        '78 kg',
-                        style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16, 80, 16, 12),
-                  child: Card(
-                    child: InkWell(
-                      splashColor: Colors.blue.withAlpha(30),
-                      onTap: () {
-                        debugPrint('Card tapped');
-                      },
-                      child: const SizedBox(
-                        width: 300,
-                        height: 100,
-                        child: Text('Payment',
-                            style: TextStyle(
-                                fontFamily: 'Lexend Deca',
-                                fontSize: 18,
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
-                      ),
-                    ),
-                  )),
-            ]),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 80, 16, 12),
-          child: ElevatedButton.icon(
-              onPressed: () async {
-                setState(() {
-                  isLoading = true;
-                });
-                await AuthServices.signOut().then((value) {
-                  if (value) {
-                    setState(() {
-                      isLoading = false;
-                    });
-                    AcitivityServices.showToast(
-                        "Logout success", Colors.greenAccent);
-                    Navigator.pushReplacementNamed(context, Login.routeName);
-                  } else {
-                    setState(() {
-                      isLoading = false;
-                    });
-                    AcitivityServices.showToast(
-                        "Logout Failed", Colors.redAccent);
-                  }
-                });
+      body: Stack(
+        children: [
+          Container(
+            padding: EdgeInsets.only(top: 20),
+            child: StreamBuilder<QuerySnapshot>(
+              stream: userCollection.where('uid', isEqualTo: uid).snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return AcitivityServices.loadings();
+                }
+
+                return  ListView(
+                  children: snapshot.data!.docs.map((DocumentSnapshot doc) {
+                    Users users;
+                    users =  Users(
+                      doc['uid'],
+                      doc['name'],
+                      doc['email'],
+                      doc['password'],
+                      doc['createdAt'],
+                      doc['updateAt'],
+                    );
+
+                    return Column(children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                Color(0xFFC72C41),
+                                Color(0xFF2D142C),
+                              ])),
+                          child: Container(
+                              width: double.infinity,
+                              child: Center(
+                                  child: Column(
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 20.0,
+                                  ),
+                                  CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                      "https://thesmokingcuban.com/wp-content/uploads/getty-images/2017/07/1193632471.jpeg",
+                                    ),
+                                    radius: 80.0,
+                                  ),
+                                  SizedBox(
+                                    height: 40.0,
+                                  ),
+                                  Text(
+                                    users.name,
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Text(
+                                    "Email :",
+                                    style: TextStyle(
+                                        color: Colors.redAccent,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 22.0),
+                                  ),
+                                  Text(
+                                    users.email,
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white,
+                                      letterSpacing: 2.0,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Created At :",
+                                    style: TextStyle(
+                                        color: Colors.redAccent,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 18.0),
+                                  ),
+                                  Text(
+                                    users.createdAt,
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white,
+                                      letterSpacing: 2.0,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    alignment: Alignment.bottomCenter,
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                                    child: ElevatedButton.icon(
+                                      label: const Text(
+                                        "Logout",
+                                        style: TextStyle(
+                                          fontFamily: 'Lexend Duca',
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      style: ElevatedButton.styleFrom(
+                                        primary: const Color(0xFFe03437),
+                                        elevation: 3,
+                                        minimumSize: const Size(130, 60),
+                                        side: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                      icon: const Icon(
+                                        Icons.login_rounded,
+                                        color: Colors.white,
+                                      ),
+                                      onPressed: () async {
+                                        setState(() {
+                                          isLoading = true;
+                                        });
+                                        await AuthServices.signOut()
+                                            .then((value) {
+                                          if (value) {
+                                            setState(() {
+                                              isLoading = false;
+                                            });
+                                            AcitivityServices.showToast(
+                                                "Logout success",
+                                                Colors.greenAccent);
+                                            Navigator.pushReplacementNamed(
+                                                context, Login.routeName);
+                                          } else {
+                                            setState(() {
+                                              isLoading = false;
+                                            });
+                                            AcitivityServices.showToast(
+                                                "Logout Failed",
+                                                Colors.redAccent);
+                                          }
+                                        });
+                                        // Navigator.pushReplacementNamed(
+                                        //     context, SplashScreen.routeName);
+                                      },
+                                    ),
+                                  )
+                                ],
+                              ))))
+                    ]);
+                  }).toList(),
+                );
               },
-              icon: const Icon(Icons.logout),
-              label: const Text("Logout"),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.grey[400],
-                elevation: 0,
-              )),
-        ),
-        isLoading == true ? AcitivityServices.loadings() : Container()
-      ]),
-    ));
+            ),
+          ),
+          isLoading == true ? AcitivityServices.loadings() : Container()
+        ],
+      ),
+    );
   }
 }
