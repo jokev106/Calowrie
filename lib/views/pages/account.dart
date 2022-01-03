@@ -62,7 +62,7 @@ class _MyAccountState extends State<MyAccount> {
                                   ),
                                   CircleAvatar(
                                     backgroundImage: NetworkImage(
-                                      "https://thesmokingcuban.com/wp-content/uploads/getty-images/2017/07/1193632471.jpeg",
+                                      "TES.jpg",
                                     ),
                                     radius: 80.0,
                                   ),
