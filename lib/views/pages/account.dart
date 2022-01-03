@@ -37,7 +37,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'assets/images/Mia_Deaven.jpg',
+                      'assets/images/CalowrieLogos.png',
                       width: 90,
                       height: 90,
                       fit: BoxFit.cover,
@@ -65,7 +65,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
-                                '[User Name]',
+                                'Mark Zuckerberg',
                                 style: TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
@@ -84,7 +84,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                               child: Text(
-                                'User.name@domainname.com',
+                                'calowrie@student.cipura.ac.id',
                                 style: TextStyle(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -137,7 +137,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                           child: Text(
-                            'TEXT',
+                            'Calowrie JOS GANDOS!',
                             style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               color: Colors.white,
@@ -181,7 +181,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                           child: Text(
-                            '178cm',
+                            '200cm',
                             style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               color: Colors.white,
@@ -225,7 +225,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                           child: Text(
-                            '78 kg',
+                            '100 kg',
                             style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               color: Colors.white,
