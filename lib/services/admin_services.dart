@@ -1,7 +1,8 @@
 part of 'services.dart';
 
 class AdminServices {
-  static CollectionReference menuCollection = FirebaseFirestore.instance.collection("menu");
+  static CollectionReference menuCollection =
+      FirebaseFirestore.instance.collection("menu");
   static DocumentReference? menuDocument;
 
   static Reference? ref;
@@ -13,17 +14,17 @@ class AdminServices {
 
     menuDocument = await menuCollection.add({
       'MenuUid': menus.uid,
-      'MenuName':menus.name,
+      'MenuName': menus.name,
       'MenuCalorie': menus.calorie,
-      'MenuTime':menus.time,
+      'MenuTime': menus.time,
       'MenuType': menus.type,
-      'MenuIngredients':menus.ingredients,
-      'MenuSteps':menus.steps,
+      'MenuIngredients': menus.ingredients,
+      'MenuSteps': menus.steps,
       // 'MenuFile': menus.file,
-      'CreatedAt':dateNow,
+      'CreatedAt': dateNow,
       'UpdatedAt': dateNow,
     });
-    if (menuDocument != null){
+    if (menuDocument != null) {
       menuCollection.doc(menuDocument!.id).update({});
       return true;
     } else {
@@ -31,10 +32,10 @@ class AdminServices {
     }
   }
 
-  static Future<bool> deleteMenu (String id) async {
+  static Future<bool> deleteMenu(String id) async {
     bool hsl = true;
     await Firebase.initializeApp();
-    await menuCollection.doc(id).delete().then((value) {
+    await menuCollection.doc(menuDocument!.id).delete().then((value) {
       hsl = true;
     }).catchError((onError) {
       hsl = false;
@@ -50,7 +51,7 @@ class AdminServices {
   //   }).catchError((onError){
   //     hsl = false;
   //   });
-    
+
   //   return hsl;
   // }
 

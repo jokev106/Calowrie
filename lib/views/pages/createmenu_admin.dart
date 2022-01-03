@@ -374,7 +374,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                               child: const Text('Post'),
                               onPressed: () {
                                 // if (_formKey.currentState!.validate()) {
-                                // final uid = AuthServices.auth.currentUser!.uid;
+                                final uid = AuthServices.auth.currentUser!.uid;
                                 final name = textController1.text;
                                 final calorie = textController2.text;
                                 final time = textController3.text;
@@ -382,7 +382,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 final ingredient = textController5.text;
                                 final step = textController6.text;
                                 AdminServices.addMenu(Menus(
-                                  '',
+                                  uid,
                                   name,
                                   calorie,
                                   time,
@@ -396,6 +396,7 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                     context, AdminArea.routeName);
                                 Fluttertoast.showToast(
                                     msg: "Save Menu Successful.",
+                                    textColor: Colors.black,
                                     backgroundColor: Colors.white);
                               }),
                         ],
