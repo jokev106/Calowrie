@@ -49,8 +49,8 @@ class _MyAccountState extends State<MyAccount> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                Color(0xFF37474F),
-                                Color(0xFF263238),
+                                Color(0xFF40C4FF),
+                                Color(0xFF01578B),
                               ])),
                           child: Container(
                               width: double.infinity,
