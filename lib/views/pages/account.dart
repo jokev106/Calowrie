@@ -49,8 +49,8 @@ class _MyAccountState extends State<MyAccount> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                Color(0xFF40C4FF),
-                                Color(0xFF01578B),
+                                Color(0xFF303030),
+                                Color(0xFF212121),
                               ])),
                           child: Container(
                               width: double.infinity,
@@ -82,7 +82,7 @@ class _MyAccountState extends State<MyAccount> {
                                   Text(
                                     "Email :",
                                     style: TextStyle(
-                                        color: Colors.redAccent,
+                                        color: Colors.grey,
                                         fontStyle: FontStyle.normal,
                                         fontSize: 22.0),
                                   ),
@@ -102,7 +102,7 @@ class _MyAccountState extends State<MyAccount> {
                                   Text(
                                     "Created At :",
                                     style: TextStyle(
-                                        color: Colors.redAccent,
+                                        color: Colors.grey,
                                         fontStyle: FontStyle.normal,
                                         fontSize: 18.0),
                                   ),
@@ -118,6 +118,14 @@ class _MyAccountState extends State<MyAccount> {
                                   ),
                                   SizedBox(
                                     height: 10,
+                                  ),
+                                  Card(
+                                    child: ListTile(
+                                      title: Text("Payment"),
+                                    ),
+                                    elevation: 8,
+                                    shadowColor: Colors.grey,
+                                    margin: EdgeInsets.all(20),
                                   ),
                                   Container(
                                     alignment: Alignment.bottomCenter,
