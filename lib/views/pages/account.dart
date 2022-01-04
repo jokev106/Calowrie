@@ -69,52 +69,57 @@ class _MyAccountState extends State<MyAccount> {
                                   SizedBox(
                                     height: 40.0,
                                   ),
-                                  Text(
-                                    users.name,
-                                    style: TextStyle(
-                                      fontSize: 22.0,
-                                      color: Colors.white,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 8, 0, 0),
+                                    child: Text(
+                                      users.name,
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  Text(
-                                    "Email :",
-                                    style: TextStyle(
+                                  Divider(
+                                    height: 1,
+                                    thickness: 2,
+                                    indent: 16,
+                                    endIndent: 16,
+                                    color: Color(0x250D9BF1),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24, 4, 0, 8),
+                                    child: Text(
+                                      "Email :",
+                                      style: TextStyle(
                                         color: Colors.grey,
                                         fontStyle: FontStyle.normal,
-                                        fontSize: 22.0),
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    ),
                                   ),
-                                  Text(
-                                    users.email,
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.white,
-                                      letterSpacing: 2.0,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24, 0, 24, 0),
+                                      child: Text(
+                                        users.email,
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
                                     height: 10,
-                                  ),
-                                  Text(
-                                    "Created At :",
-                                    style: TextStyle(
-                                        color: Colors.grey,
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 18.0),
-                                  ),
-                                  Text(
-                                    users.createdAt,
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.white,
-                                      letterSpacing: 2.0,
-                                    ),
                                   ),
                                   SizedBox(
                                     height: 10,
