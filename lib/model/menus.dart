@@ -8,7 +8,7 @@ class Menus extends Equatable{
   final String type;
   final String ingredients;
   final String steps;
-  //final String file;
+  final String image;
   final String createdAt;
   final String updatedAt;
 
@@ -20,9 +20,9 @@ class Menus extends Equatable{
     this.type,
     this.ingredients,
     this.steps,
+    this.image,
     this.createdAt,
-    this.updatedAt
-    // this.file
+    this.updatedAt,
   );
 
   @override
@@ -34,8 +34,9 @@ class Menus extends Equatable{
     type,
     ingredients,
     steps,
+    image,
     createdAt,
     updatedAt,
-    //file
+    
   ];
 }

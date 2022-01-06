@@ -40,6 +40,7 @@ class _ListMenuState extends State<ListMenu> {
                   doc['MenuType'],
                   doc['MenuIngredients'],
                   doc['MenuSteps'],
+                  doc['MenuFile'],
                   doc['CreatedAt'],
                   doc['UpdatedAt'],
                 );

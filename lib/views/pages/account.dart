@@ -30,10 +30,10 @@ class _MyAccountState extends State<MyAccount> {
                   return AcitivityServices.loadings();
                 }
 
-                return ListView(
+                return  ListView(
                   children: snapshot.data!.docs.map((DocumentSnapshot doc) {
                     Users users;
-                    users = Users(
+                    users =  Users(
                       doc['uid'],
                       doc['name'],
                       doc['email'],
@@ -49,8 +49,8 @@ class _MyAccountState extends State<MyAccount> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                Color(0xFF303030),
-                                Color(0xFF212121),
+                                Color(0xFFC72C41),
+                                Color(0xFF2D142C),
                               ])),
                           child: Container(
                               width: double.infinity,
@@ -62,75 +62,62 @@ class _MyAccountState extends State<MyAccount> {
                                   ),
                                   CircleAvatar(
                                     backgroundImage: NetworkImage(
-                                      "TES.jpg",
+                                      "https://thesmokingcuban.com/wp-content/uploads/getty-images/2017/07/1193632471.jpeg",
                                     ),
                                     radius: 80.0,
                                   ),
                                   SizedBox(
                                     height: 40.0,
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
-                                    child: Text(
-                                      users.name,
-                                      style: TextStyle(
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ),
+                                  Text(
+                                    users.name,
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      color: Colors.white,
                                     ),
                                   ),
                                   SizedBox(
                                     height: 30,
                                   ),
-                                  Divider(
-                                    height: 1,
-                                    thickness: 2,
-                                    indent: 16,
-                                    endIndent: 16,
-                                    color: Color(0x250D9BF1),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 4, 0, 8),
-                                    child: Text(
-                                      "Email :",
-                                      style: TextStyle(
-                                        color: Colors.grey,
+                                  Text(
+                                    "Email :",
+                                    style: TextStyle(
+                                        color: Colors.redAccent,
                                         fontStyle: FontStyle.normal,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
+                                        fontSize: 22.0),
                                   ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 24, 0),
-                                      child: Text(
-                                        users.email,
-                                        style: TextStyle(
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.normal,
-                                          color: Colors.white,
-                                        ),
-                                      ),
+                                  Text(
+                                    users.email,
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white,
+                                      letterSpacing: 2.0,
                                     ),
                                   ),
                                   SizedBox(
                                     height: 10,
                                   ),
+                                  Text(
+                                    "Created At :",
+                                    style: TextStyle(
+                                        color: Colors.redAccent,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 18.0),
+                                  ),
+                                  Text(
+                                    users.createdAt,
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontStyle: FontStyle.italic,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white,
+                                      letterSpacing: 2.0,
+                                    ),
+                                  ),
                                   SizedBox(
                                     height: 10,
-                                  ),
-                                  Card(
-                                    child: ListTile(
-                                      title: Text("Payment"),
-                                    ),
-                                    elevation: 8,
-                                    shadowColor: Colors.grey,
-                                    margin: EdgeInsets.all(20),
                                   ),
                                   Container(
                                     alignment: Alignment.bottomCenter,

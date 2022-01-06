@@ -23,9 +23,8 @@ class _AdminMenuCardState extends State<AdminMenuCard> {
             color: const Color(0xFF090F13),
             image: DecorationImage(
               fit: BoxFit.fitWidth,
-              image: Image.asset(
-                'assets/images/food.jpeg',
-              ).image,
+              image: NetworkImage(menus.image,
+              ),
             ),
             boxShadow: const [
               BoxShadow(

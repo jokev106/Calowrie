@@ -64,6 +64,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
                   doc['MenuType'],
                   doc['MenuIngredients'],
                   doc['MenuSteps'],
+                  doc['MenuFile'],
                   doc['CreatedAt'],
                   doc['UpdatedAt'],
                 );
