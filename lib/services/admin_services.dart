@@ -26,19 +26,20 @@ class AdminServices {
       'UpdatedAt': dateNow,
     });
     if (menuDocument != null) {
-      ref = FirebaseStorage.instance.ref().child("images").child(menuDocument!.id+".png");
+      ref = FirebaseStorage.instance
+          .ref()
+          .child("images")
+          .child(menuDocument!.id + ".png");
       uploadTask = ref!.putFile(File(imgFile.path));
 
-      await uploadTask!.whenComplete(() => 
-        ref!.getDownloadURL().then((value) => imgUrl = value,)
-      );
+      await uploadTask!.whenComplete(() => ref!.getDownloadURL().then(
+            (value) => imgUrl = value,
+          ));
 
-      menuCollection.doc(menuDocument!.id).update(
-        {
-          'MenuUid': menuDocument!.id,
-          'MenuFile': imgUrl,
-        }
-      );
+      menuCollection.doc(menuDocument!.id).update({
+        'MenuUid': menuDocument!.id,
+        'MenuFile': imgUrl,
+      });
       return true;
     } else {
       return false;
@@ -48,7 +49,7 @@ class AdminServices {
   static Future<bool> deleteMenu(String id) async {
     bool hsl = true;
     await Firebase.initializeApp();
-    await menuCollection.doc(menuDocument!.id).delete().then((value) {
+    await menuCollection.doc(id).delete().then((value) {
       hsl = true;
     }).catchError((onError) {
       hsl = false;
