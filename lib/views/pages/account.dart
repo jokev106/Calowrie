@@ -21,7 +21,7 @@ class _MyAccountState extends State<MyAccount> {
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 10),
             child: StreamBuilder<QuerySnapshot>(
               stream: userCollection.where('uid', isEqualTo: uid).snapshots(),
               builder: (BuildContext context,
@@ -30,10 +30,10 @@ class _MyAccountState extends State<MyAccount> {
                   return AcitivityServices.loadings();
                 }
 
-                return  ListView(
+                return ListView(
                   children: snapshot.data!.docs.map((DocumentSnapshot doc) {
                     Users users;
-                    users =  Users(
+                    users = Users(
                       doc['uid'],
                       doc['name'],
                       doc['email'],
@@ -49,8 +49,8 @@ class _MyAccountState extends State<MyAccount> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                Color(0xFFC72C41),
-                                Color(0xFF2D142C),
+                                Color(0xFF263238),
+                                Color(0xFF263238),
                               ])),
                           child: Container(
                               width: double.infinity,
@@ -60,14 +60,33 @@ class _MyAccountState extends State<MyAccount> {
                                   SizedBox(
                                     height: 20.0,
                                   ),
-                                  CircleAvatar(
-                                    backgroundImage: NetworkImage(
-                                      "https://thesmokingcuban.com/wp-content/uploads/getty-images/2017/07/1193632471.jpeg",
+                                  Text(
+                                    "My Account",
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    radius: 80.0,
                                   ),
                                   SizedBox(
                                     height: 40.0,
+                                  ),
+                                  CircleAvatar(
+                                    child: Image.asset(
+                                        'assets/images/CalowrieLogos.png'),
+                                    radius: 100.0,
+                                  ),
+                                  SizedBox(
+                                    height: 40.0,
+                                  ),
+                                  Text(
+                                    "Name :",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                   ),
                                   Text(
                                     users.name,
@@ -77,47 +96,71 @@ class _MyAccountState extends State<MyAccount> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 30,
+                                    height: 10.0,
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    thickness: 2,
+                                    indent: 16,
+                                    endIndent: 16,
+                                    color: Color(0xFF212121),
+                                  ),
+                                  SizedBox(
+                                    height: 80,
                                   ),
                                   Text(
                                     "Email :",
                                     style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 22.0),
+                                      color: Colors.grey,
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                   ),
                                   Text(
                                     users.email,
                                     style: TextStyle(
                                       fontSize: 20.0,
-                                      fontStyle: FontStyle.italic,
+                                      fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w300,
                                       color: Colors.white,
                                       letterSpacing: 2.0,
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 10.0,
                                   ),
-                                  Text(
-                                    "Created At :",
-                                    style: TextStyle(
-                                        color: Colors.redAccent,
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 18.0),
+                                  Divider(
+                                    height: 1,
+                                    thickness: 2,
+                                    indent: 16,
+                                    endIndent: 16,
+                                    color: Color(0xFF212121),
                                   ),
-                                  Text(
-                                    users.createdAt,
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.white,
-                                      letterSpacing: 2.0,
-                                    ),
-                                  ),
+                                  // SizedBox(
+                                  //   height: 50,
+                                  // ),
+                                  // Text(
+                                  //   "Created At :",
+                                  //   style: TextStyle(
+                                  //     color: Colors.grey,
+                                  //     fontStyle: FontStyle.normal,
+                                  //     fontSize: 18.0,
+                                  //     fontWeight: FontWeight.normal,
+                                  //   ),
+                                  // ),
+                                  // Text(
+                                  //   users.createdAt,
+                                  //   style: TextStyle(
+                                  //     fontSize: 20.0,
+                                  //     fontStyle: FontStyle.italic,
+                                  //     fontWeight: FontWeight.w300,
+                                  //     color: Colors.white,
+                                  //     letterSpacing: 2.0,
+                                  //   ),
+                                  // ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 150,
                                   ),
                                   Container(
                                     alignment: Alignment.bottomCenter,
@@ -178,6 +221,9 @@ class _MyAccountState extends State<MyAccount> {
                                         //     context, SplashScreen.routeName);
                                       },
                                     ),
+                                  ),
+                                  SizedBox(
+                                    height: 60,
                                   )
                                 ],
                               ))))
