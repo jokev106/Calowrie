@@ -7,3 +7,4 @@ import 'package:flutter/material.dart';
 
 part 'adminmenu_card.dart';
 part 'usermenu_card.dart';
+part 'detail_card.dart';

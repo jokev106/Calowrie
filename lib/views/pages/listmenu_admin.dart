@@ -43,6 +43,7 @@ class _AdminListMenuState extends State<AdminListMenu> {
         width: double.infinity,
         height: double.infinity,
         child: StreamBuilder<QuerySnapshot>(
+          
           stream: menuCollection.snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -50,9 +51,9 @@ class _AdminListMenuState extends State<AdminListMenu> {
               return const Text("Failed to load data");
             }
 
-            // if (snapshot.connectionState == ConnectionState.waiting) {
-            //   return AcitivityServices.loadings();
-            // }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return AcitivityServices.loadings();
+            }
             return ListView(
               key: _formkey,
               children: snapshot.data!.docs.map((DocumentSnapshot doc) {
@@ -70,9 +71,14 @@ class _AdminListMenuState extends State<AdminListMenu> {
                 );
                 return AdminMenuCard(menus: menus);
               }).toList(),
+            
             );
+            
           },
-        ));
+        
+        )
+        
+        );
   }
 
   @override

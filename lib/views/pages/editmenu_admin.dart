@@ -4,6 +4,8 @@ class AdminEditMenuPage extends StatefulWidget {
   const AdminEditMenuPage({Key? key}) : super(key: key);
   static const String routeName = "/editmenuadmin";
 
+  
+
   @override
   _AdminEditMenuPageState createState() => _AdminEditMenuPageState();
 }
@@ -304,6 +306,7 @@ class _AdminEditMenuPageState extends State<AdminEditMenuPage> {
                             ],
                           ),
                         ),
+<<<<<<< Updated upstream
                         Padding(
                           padding:
                               const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
@@ -350,6 +353,27 @@ class _AdminEditMenuPageState extends State<AdminEditMenuPage> {
                                   maxLines: 4,
                                   keyboardType: TextInputType.name,
                                 ),
+=======
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.96,
+                          height: 150,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFF1F5F8),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: Image.asset(
+                                'assets/images/emptyState@2x.png',
+                              ).image,
+                            ),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 6,
+                                color: Color(0x3A000000),
+                                offset: Offset(0, 2),
+>>>>>>> Stashed changes
                               )
                             ],
                           ),

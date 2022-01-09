@@ -1,6 +1,7 @@
 part of 'pages.dart';
 
 class MenuDetail extends StatefulWidget {
+  
   const MenuDetail({Key? key}) : super(key: key);
   static const String routeName = "/menudetail";
 
@@ -13,11 +14,15 @@ CollectionReference menuCollection =
 
 
 class _MenuDetailState extends State<MenuDetail> {
+   CollectionReference menuCollection = FirebaseFirestore.instance.collection("menu");
+  final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body:
+ SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -55,28 +60,89 @@ class _MenuDetailState extends State<MenuDetail> {
                 ],
               ),
             ),
+            SizedBox(
+                    width: 200.0,
+                    height: 70.0,
+                    child: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('menu').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView(
+            children: snapshot.data!.docs.map((document) {
+              return Container(
+                child: Center(child: Text(document['MenuCalorie'])),
+              );
+            }).toList(),
+          );
+          }
+            ),),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
                   Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                      child: Text(
-                        '400 Cal',
-                        style: TextStyle(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF1B1B1B),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
+                    child: Text(
+                      'Time :',
+                      style: TextStyle(
+                        fontFamily: 'Lexend Deca',
+                        color: Color(0xFF1B1B1B),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
+            SizedBox(
+                    width: 200.0,
+                    height: 70.0,
+                    child: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('menu').where('MenuUid').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView(
+            children: snapshot.data!.docs.map((document) {
+              return Container(
+                child: Center(child: Text(document['MenuTime'])),
+              );
+            }).toList(),
+          );
+          }
+            ),),
+            // Padding(
+            //   padding: const EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+            //   child: Row(
+            //     mainAxisSize: MainAxisSize.max,
+            //     children: const [
+            //       Expanded(
+            //         child: 
+                    
+            //         Padding(
+            //           padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+            //           child: Text(
+            //             menus.calorie,
+            //             style: TextStyle(
+            //               fontFamily: 'Lexend Deca',
+            //               color: Color(0xFF1B1B1B),
+            //               fontSize: 18,
+            //               fontWeight: FontWeight.w500,
+            //             ),
+            //           ),
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
               child: Row(
@@ -97,79 +163,26 @@ class _MenuDetailState extends State<MenuDetail> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        child: Text(
-                          'Lorem Ipsum',
-                          style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF1B1B1B),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        child: Text(
-                          'Lorem Ipsum',
-                          style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF1B1B1B),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        child: Text(
-                          'Lorem Ipsum',
-                          style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF1B1B1B),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        child: Text(
-                          'Lorem Ipsum',
-                          style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF1B1B1B),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        child: Text(
-                          'Lorem Ipsum',
-                          style: TextStyle(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF1B1B1B),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
+            SizedBox(
+                    width: 200.0,
+                    height: 300.0,
+                    child: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('menu').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView(
+            children: snapshot.data!.docs.map((document) {
+              return Container(
+                child: Center(child: Text(document['MenuIngredients'])),
+              );
+            }).toList(),
+          );
+          }
+            ),),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
               child: Row(
@@ -211,9 +224,7 @@ class _MenuDetailState extends State<MenuDetail> {
                 ],
               ),
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
+        ])
+            ));
+      }
+      }
