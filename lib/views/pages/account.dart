@@ -21,7 +21,7 @@ class _MyAccountState extends State<MyAccount> {
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             child: StreamBuilder<QuerySnapshot>(
               stream: userCollection.where('uid', isEqualTo: uid).snapshots(),
               builder: (BuildContext context,
@@ -44,7 +44,7 @@ class _MyAccountState extends State<MyAccount> {
 
                     return Column(children: [
                       Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
@@ -57,10 +57,10 @@ class _MyAccountState extends State<MyAccount> {
                               child: Center(
                                   child: Column(
                                 children: <Widget>[
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20.0,
                                   ),
-                                  Text(
+                                  const Text(
                                     "My Account",
                                     style: TextStyle(
                                       fontSize: 30,
@@ -68,7 +68,7 @@ class _MyAccountState extends State<MyAccount> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 40.0,
                                   ),
                                   CircleAvatar(
@@ -76,10 +76,10 @@ class _MyAccountState extends State<MyAccount> {
                                         'assets/images/CalowrieLogos.png'),
                                     radius: 100.0,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 40.0,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Name :",
                                     style: TextStyle(
                                       color: Colors.grey,
@@ -90,25 +90,25 @@ class _MyAccountState extends State<MyAccount> {
                                   ),
                                   Text(
                                     users.name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 22.0,
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10.0,
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                     thickness: 2,
                                     indent: 16,
                                     endIndent: 16,
                                     color: Color(0xFF212121),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 80,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Email :",
                                     style: TextStyle(
                                       color: Colors.grey,
@@ -119,7 +119,7 @@ class _MyAccountState extends State<MyAccount> {
                                   ),
                                   Text(
                                     users.email,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 20.0,
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w300,
@@ -127,10 +127,10 @@ class _MyAccountState extends State<MyAccount> {
                                       letterSpacing: 2.0,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10.0,
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                     thickness: 2,
                                     indent: 16,
@@ -159,7 +159,7 @@ class _MyAccountState extends State<MyAccount> {
                                   //     letterSpacing: 2.0,
                                   //   ),
                                   // ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 150,
                                   ),
                                   Container(
@@ -222,7 +222,7 @@ class _MyAccountState extends State<MyAccount> {
                                       },
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 60,
                                   )
                                 ],

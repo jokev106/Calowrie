@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:calowrie/model/models.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
          AdminArea.routeName: (context) => const AdminArea(),
          AdminListMenu.routeName: (context) => const AdminListMenu(),
          AdminCreateMenu.routeName: (context) => const AdminCreateMenu(),
-         MenuDetail.routeName: (context) => const MenuDetail(),
+         MenuDetail.routeName: (context) =>  const MenuDetail(),
          MyAccount.routeName: (context) => const MyAccount(),
 
 

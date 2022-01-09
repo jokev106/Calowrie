@@ -23,8 +23,13 @@ class _SplashScreenState extends State<SplashScreen>
   void checkAuth() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     if (auth.currentUser != null) {
-      Navigator.pushReplacementNamed(context, HomePageWidget.routeName);
-      AcitivityServices.showToast("Welcome Back", Colors.blue);
+      if (auth.currentUser?.uid != 'r7effvXMsQg0EBlQAal3n3lp1ff2' ){
+        Navigator.pushReplacementNamed(context, HomePageWidget.routeName);
+        AcitivityServices.showToast("Welcome Back", Colors.blue);
+      } else {
+        Navigator.pushReplacementNamed(context, AdminArea.routeName);
+        AcitivityServices.showToast("Welcome Back", Colors.blue);
+      }    
     } else {
       Navigator.pushReplacementNamed(context, SplashPageWidget.routeName);
     }

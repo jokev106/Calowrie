@@ -8,6 +8,10 @@ class MenuDetail extends StatefulWidget {
   _MenuDetailState createState() => _MenuDetailState();
 }
 
+CollectionReference menuCollection =
+    FirebaseFirestore.instance.collection("menus");
+
+
 class _MenuDetailState extends State<MenuDetail> {
   @override
   Widget build(BuildContext context) {
@@ -22,12 +26,13 @@ class _MenuDetailState extends State<MenuDetail> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(0),
-                  child: Image.asset(
-                    'assets/images/food.jpeg',
-                    width: MediaQuery.of(context).size.width,
-                    height: 230,
-                    fit: BoxFit.cover,
-                  ),
+                  // child:
+                  // Image.network(
+                  //   menus.image,
+                  //   width: MediaQuery.of(context).size.width,
+                  //   height: 230,
+                  //   fit: BoxFit.cover,
+                  // ),
                 )
               ],
             ),
