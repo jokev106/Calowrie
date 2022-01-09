@@ -18,57 +18,54 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   PickedFile? imageFile;
   final ImagePicker imagePicker = ImagePicker();
-  
-  Future chooseFile(String type) async{
+
+  Future chooseFile(String type) async {
     ImageSource imgSrc;
-    if(type == "camera"){
+    if (type == "camera") {
       imgSrc = ImageSource.camera;
     } else {
       imgSrc = ImageSource.gallery;
     }
 
     // ignore: deprecated_member_use
-    final selectedImage = await imagePicker.getImage(
-      source: imgSrc,
-      imageQuality: 50
-    );
+    final selectedImage =
+        await imagePicker.getImage(source: imgSrc, imageQuality: 50);
     setState(() {
       imageFile = selectedImage!;
     });
   }
 
-  void showFileDialog(BuildContext ctx){
+  void showFileDialog(BuildContext ctx) {
     showDialog(
-      context: ctx, 
-      builder: (ctx){
-        return AlertDialog(
-          title: Text("Confirmation"),
-          content: Text("Pick image from:"),
-          actions: [
-            ElevatedButton.icon(
-              onPressed: (){
-                chooseFile("camera");
-              }, 
-              icon: Icon(Icons.camera_alt), 
-              label: Text("Camera"),
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
+        context: ctx,
+        builder: (ctx) {
+          return AlertDialog(
+            title: Text("Confirmation"),
+            content: Text("Pick image from:"),
+            actions: [
+              ElevatedButton.icon(
+                onPressed: () {
+                  chooseFile("camera");
+                },
+                icon: Icon(Icons.camera_alt),
+                label: Text("Camera"),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                ),
               ),
-            ),
-            ElevatedButton.icon(
-              onPressed: (){
-                chooseFile("gallery");
-              }, 
-              icon: Icon(Icons.folder_open), 
-              label: Text("Gallery"),
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
+              ElevatedButton.icon(
+                onPressed: () {
+                  chooseFile("gallery");
+                },
+                icon: Icon(Icons.folder_open),
+                label: Text("Gallery"),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                ),
               ),
-            ),
-          ],
-        );
-      }
-    );
+            ],
+          );
+        });
   }
 
   // void clearForm(){
@@ -82,7 +79,6 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
   //     imageFile = null;
   //   });
   // }
-
 
   @override
   Widget build(BuildContext context) {
@@ -404,47 +400,43 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                               ],
                             ),
                           ),
-                          imageFile == null ?
-                          Row(
-                          children: [
-                            ElevatedButton.icon(
-                              onPressed: (){
-                                showFileDialog(context);
-                              },
-                              icon: Icon(Icons.photo_camera),
-                              label: Text("Ambil Gambar"),
-                              style: ElevatedButton.styleFrom(
-                              primary: Color(0xFFC72C41),
-
-                            ),
-                            ),
-                            SizedBox(width:16),
-                            Text("File tidak ditemukan.")
-                          ],
-                        )
-                        :
-                        Row(
-                          children: [
-                            ElevatedButton.icon(
-                              onPressed: (){
-                                showFileDialog(context);
-                              },
-                              icon: Icon(Icons.photo_camera),
-                              label: Text("Ulangi Gambar"),
-                              style: ElevatedButton.styleFrom(
-                              primary: Color(0xFFC72C41),
-
-                            ),
-                            ),
-                            SizedBox(width:16),
-                            Semantics(
-                              child: Image.file(
-                                File(imageFile!.path),
-                                width: 100,
-                              )
-                            )
-                          ],
-                        ),
+                          imageFile == null
+                              ? Row(
+                                  children: [
+                                    ElevatedButton.icon(
+                                      onPressed: () {
+                                        showFileDialog(context);
+                                      },
+                                      icon: const Icon(Icons.photo_camera),
+                                      label: const Text("Ambil Gambar"),
+                                      style: ElevatedButton.styleFrom(
+                                        primary: const Color(0xFFC72C41),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 16),
+                                    const Text("File tidak ditemukan.")
+                                  ],
+                                )
+                              : Row(
+                                  children: [
+                                    ElevatedButton.icon(
+                                      onPressed: () {
+                                        showFileDialog(context);
+                                      },
+                                      icon: const Icon(Icons.photo_camera),
+                                      label: const Text("Ulangi Gambar"),
+                                      style: ElevatedButton.styleFrom(
+                                        primary: const Color(0xFFC72C41),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 16),
+                                    Semantics(
+                                        child: Image.file(
+                                      File(imageFile!.path),
+                                      width: 100,
+                                    ))
+                                  ],
+                                ),
                           TextButton(
                               style: TextButton.styleFrom(
                                 backgroundColor: const Color(0xffd09484),
@@ -481,21 +473,35 @@ class _AdminCreateMenuState extends State<AdminCreateMenu> {
                                 //     msg: "Save Menu Successful.",
                                 //     textColor: Colors.black,
                                 //     backgroundColor: Colors.white);
-                          
-                              Menus menus = Menus("",textController1.text, textController2.text, textController3.text, textController4.text, textController5.text, textController6.text, "", "","");
-                              await AdminServices.addMenu(menus, imageFile!).then((value){
-                              if(value == true){
-                                AcitivityServices.showToast("Simpan Barang Berhasil!", Colors.green);
-                                Navigator.pushReplacementNamed(context, AdminArea.routeName);
-                                setState(() {
-                                  isLoading = false;
+
+                                Menus menus = Menus(
+                                    "",
+                                    textController1.text,
+                                    textController2.text,
+                                    textController3.text,
+                                    textController4.text,
+                                    textController5.text,
+                                    textController6.text,
+                                    "",
+                                    "",
+                                    "");
+                                await AdminServices.addMenu(menus, imageFile!)
+                                    .then((value) {
+                                  if (value == true) {
+                                    AcitivityServices.showToast(
+                                        "Simpan Barang Berhasil!",
+                                        Colors.green);
+                                    Navigator.pushReplacementNamed(
+                                        context, AdminArea.routeName);
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                  } else {
+                                    AcitivityServices.showToast(
+                                        "Simpan Barang Gagal!", Colors.red);
+                                  }
                                 });
-                              }else{
-                                AcitivityServices.showToast("Simpan Barang Gagal!", Colors.red);
-                              }
-                            });
-                           } 
-                          ),
+                              }),
                         ],
                       ),
                     ),

@@ -106,7 +106,9 @@ class _LoginState extends State<Login> {
                         const SizedBox(height: 24),
                         ElevatedButton.icon(
                           onPressed: () async {
-                            if (emailAddressController.text == 'kevinm@gmail.com' && passwordController.text == '123qwe'){
+                            if (emailAddressController.text ==
+                                    'kevinm@gmail.com' &&
+                                passwordController.text == '123qwe') {
                               if (_formkey.currentState!.validate()) {
                                 setState(() {
                                   isLoading = true;

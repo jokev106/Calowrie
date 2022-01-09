@@ -23,7 +23,8 @@ class _AdminMenuCardState extends State<AdminMenuCard> {
             color: const Color(0xFF090F13),
             image: DecorationImage(
               fit: BoxFit.fitWidth,
-              image: NetworkImage(menus.image,
+              image: NetworkImage(
+                menus.image,
               ),
             ),
             boxShadow: const [
@@ -106,7 +107,7 @@ class _AdminMenuCardState extends State<AdminMenuCard> {
                           onPressed: () {
                             Navigator.pushNamed(
                               context,
-                              AdminEditMenuPageWidget.routeName,
+                              AdminEditMenuPage.routeName,
                             );
                           },
                         ),

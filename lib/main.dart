@@ -6,18 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:calowrie/shared/shared.dart';
 import 'package:calowrie/views/pages/pages.dart';
 
-void enablePlatformOverrideForDekstop(){
-  if(!kIsWeb && (Platform.isMacOS || Platform.isWindows ||Platform.isLinux)){
+void enablePlatformOverrideForDekstop() {
+  if (!kIsWeb && (Platform.isMacOS || Platform.isWindows || Platform.isLinux)) {
     debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   }
 }
-void main() async{
+
+void main() async {
   enablePlatformOverrideForDekstop();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,19 +30,18 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.myTheme(),
       initialRoute: '/',
       routes: {
-         '/': (context) => const SplashScreen(),
-         SplashScreen.routeName: (context) => const SplashScreen(),
-         SplashPageWidget.routeName: (context) => const SplashPageWidget(),
-         Login.routeName: (context) => const Login(),
-         Register.routeName: (context) => const Register(),
-         HomePageWidget.routeName: (context) => const HomePageWidget(),
-         AdminArea.routeName: (context) => const AdminArea(),
-         AdminListMenu.routeName: (context) => const AdminListMenu(),
-         AdminCreateMenu.routeName: (context) => const AdminCreateMenu(),
-         MenuDetail.routeName: (context) => const MenuDetail(),
-         MyAccount.routeName: (context) => const MyAccount(),
-
-
+        '/': (context) => const SplashScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        SplashPageWidget.routeName: (context) => const SplashPageWidget(),
+        Login.routeName: (context) => const Login(),
+        Register.routeName: (context) => const Register(),
+        HomePageWidget.routeName: (context) => const HomePageWidget(),
+        AdminArea.routeName: (context) => const AdminArea(),
+        AdminListMenu.routeName: (context) => const AdminListMenu(),
+        AdminCreateMenu.routeName: (context) => const AdminCreateMenu(),
+        MenuDetail.routeName: (context) => const MenuDetail(),
+        MyAccount.routeName: (context) => const MyAccount(),
+        AdminEditMenuPage.routeName: (context) => const AdminEditMenuPage(),
       },
     );
   }

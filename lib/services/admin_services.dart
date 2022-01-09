@@ -57,4 +57,18 @@ class AdminServices {
 
     return hsl;
   }
+
+  static Future<bool> editMenu(Menus menus) async {
+    await Firebase.initializeApp();
+    await menuCollection.doc(menuDocument!.id).update({
+      'MenuName': menus.name,
+      'MenuCalorie': menus.calorie,
+      'MenuTime': menus.time,
+      'MenuType': menus.type,
+      'MenuIngredients': menus.ingredients,
+      'MenuStep': menus.steps,
+    });
+
+    return true;
+  }
 }
