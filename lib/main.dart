@@ -1,10 +1,6 @@
 import 'dart:io';
-
 import 'package:calowrie/model/models.dart';
-<<<<<<< Updated upstream
-=======
 import 'package:cloud_firestore/cloud_firestore.dart';
->>>>>>> Stashed changes
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +33,6 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.myTheme(),
       initialRoute: '/',
       routes: {
-<<<<<<< Updated upstream
         '/': (context) => const SplashScreen(),
         SplashScreen.routeName: (context) => const SplashScreen(),
         SplashPageWidget.routeName: (context) => const SplashPageWidget(),
@@ -50,21 +45,7 @@ class MyApp extends StatelessWidget {
         MenuDetail.routeName: (context) => const MenuDetail(),
         MyAccount.routeName: (context) => const MyAccount(),
         AdminEditMenuPage.routeName: (context) => const AdminEditMenuPage(),
-=======
-         '/': (context) => const SplashScreen(),
-         SplashScreen.routeName: (context) => const SplashScreen(),
-         SplashPageWidget.routeName: (context) => const SplashPageWidget(),
-         Login.routeName: (context) => const Login(),
-         Register.routeName: (context) => const Register(),
-         HomePageWidget.routeName: (context) => const HomePageWidget(),
-         AdminArea.routeName: (context) => const AdminArea(),
-         AdminListMenu.routeName: (context) => const AdminListMenu(),
-         AdminCreateMenu.routeName: (context) => const AdminCreateMenu(),
-         MenuDetail.routeName: (context) => const MenuDetail(),
-         MyAccount.routeName: (context) => const MyAccount(),
-        AdminEditMenuPageWidget.routeName: (context) => const AdminEditMenuPageWidget(),
 
->>>>>>> Stashed changes
       },
     );
   }
